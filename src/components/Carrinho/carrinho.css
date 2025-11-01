@@ -1,0 +1,249 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+/*MOBILE FIRST*/
+@media (max-width: 592px) {
+  .divGeral {
+    max-width: 300px;
+    align-items: center;
+
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    min-height: 150px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #faf6f6c7;
+  }
+
+  .containerCarrinho {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .carrinhoInformacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5px;
+  }
+
+  .carrinhoInformacao > h2 {
+    margin-bottom: 16px;
+    overflow: hidden;
+    font-size: 15px;
+    max-width: 13ch;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .carrinhoInformacao > aside {
+    font-size: 13px;
+  }
+
+  .carrinhoInformacao > p {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .carrinhop {
+    width: 300px;
+    height: 40px;
+    background-color: #27ae60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    margin: auto;
+  }
+
+  .produtoCarrinho {
+    display: flex;
+    margin-left: 23px;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .produtoCarrinho > img {
+    background-color: #d3d1d1;
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+    margin-left: -29px;
+  }
+
+  .produtoCarrinho > button {
+    border: none;
+    height: 5px;
+    margin-top: 8px;
+  }
+
+  .Resultado {
+    margin-top: 35px;
+    width: 280px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    border-top: solid #c2bcbc 3px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Resultado > button {
+    background-color: #e0e0e0;
+    padding: 0px 20px 0px 20px;
+    height: 60px;
+    border: #e0e0e0;
+    border-radius: 5px;
+    color: #828282;
+  }
+  .total {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .sacolaVazia {
+    font-size: 15px;
+    margin-top: 35px;
+  }
+}
+
+/*FORMATAÇÃO WEB*/
+@media (min-width: 592px) {
+  .divGeral {
+    max-width: 300px;
+    align-items: center;
+    background-color: #f5f5f5;
+    justify-content: center;
+    margin: auto;
+    margin-top: 17px;
+    margin-bottom: 15px;
+    height: 650px;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  .containerCarrinho {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .carrinhoInformacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5px;
+    margin-left: -18px;
+  }
+
+  .carrinhoInformacao > h2 {
+    margin-bottom: 16px;
+    overflow: hidden;
+    font-size: 12px;
+    max-width: 13ch;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .carrinhoInformacao > aside {
+    font-size: 13px;
+  }
+
+  .carrinhoInformacao > p {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .carrinhop {
+    width: 300px;
+    height: 40px;
+    background-color: #27ae60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    margin: auto;
+  }
+
+  .produtoCarrinho {
+    display: flex;
+    margin-left: 23px;
+    justify-content: space-around;
+    margin-top: 10px;
+    align-items: center;
+    padding-left: 8px;
+  }
+
+  .produtoCarrinho > img {
+    background-color: #d3d1d1;
+    width: 60px;
+    height: 60px;
+    padding: 0px;
+    margin-left: -25px;
+  }
+
+  .produtoCarrinho > button {
+    border: none;
+    height: 5px;
+    margin-top: 8px;
+    margin-right: -25px;
+  }
+
+  .produtoCarrinho > button:hover {
+    cursor: pointer;
+  }
+
+  .Resultado {
+    margin-top: 35px;
+    width: 280px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    border-top: solid #c2bcbc 3px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Resultado > button {
+    background-color: #e0e0e0;
+    padding: 0px 20px 0px 20px;
+    height: 60px;
+    border: #e0e0e0;
+    border-radius: 5px;
+    color: #828282;
+  }
+
+  .Resultado > button:hover {
+    cursor: pointer;
+  }
+  .total {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .sacolaVazia {
+    font-size: 15px;
+    margin-top: 35px;
+  }
+}

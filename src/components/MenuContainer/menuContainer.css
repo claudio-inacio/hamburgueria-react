@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+@media (max-width: 591px) {
+  .cardapio {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+  }
+}
+@media (min-width: 592px) {
+  .cardapio {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+
+    align-items: center;
+    justify-content: center;
+  }
+}
