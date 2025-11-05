@@ -1,12 +1,28 @@
-import "./button.css";
+import "../Button/button.css";
+import { styleButtonEnum } from "./enum";
 
-const Button = ({ titulo, onClick, produto }) => {
+
+
+const Button = ({disabled=false, title, handleFunction, idButton, typeButton = "button", variant= 'default' }) => {
+   const style = styleButtonEnum[variant] || styleButtonEnum.default;
+
   return (
-    <div>
-      <button onClick={() => onClick(produto)} className={"botao"}>
-        {titulo}
-      </button>
-    </div>
+    <button
+  type={typeButton}
+  id={idButton}
+  onClick={() => !disabled && handleFunction()} 
+  className="botao"
+  style={{
+    "--bg": style?.backgroundColor,
+    "--hover": style?.bgHover,
+    "--text": style?.textColor,
+    "--border": style?.borderColor,
+    "--disabled": disabled ? 1 : 0, 
+  }}
+>
+  {title}
+</button>
+
   );
 };
 

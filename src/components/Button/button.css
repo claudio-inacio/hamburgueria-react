@@ -3,13 +3,26 @@
   height: 40px;
   border-radius: 8px;
   font-size: 11.5px;
-  padding: 0px 20px 0px 20px;
-  background-color: #27ae60;
-  color: white;
-  border: 2px solid #27ae60;
+  padding: 0px 20px;
+  background-color: var(--bg, #004687);
+  color: var(--text, white);
+  border: 2px solid var(--border, #0E3386);
+  transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  opacity: calc(1 - (var(--disabled, 0) * 0.5));
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: var(--hover, #005A9C);
+}
+
+.botao[style*="--disabled: 1"],
+.botao[style*="--disabled:true"] {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .botao:hover {
   cursor: pointer;
-  background-color: #93d7af;
+  background-color: var(--hover, #005A9C);
 }
