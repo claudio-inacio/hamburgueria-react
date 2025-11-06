@@ -1,0 +1,33 @@
+/*MOBILE FIRST*/
+@media (max-width: 591px) {
+
+
+  .containerHeader {
+    display: flex;
+    flex-direction: row;
+    border: solid #e0e0e0 2px;
+    border-radius: 8px;
+    background-color: white;
+    align-items: center;
+    padding: 0px 10px 0px 15px;
+    width: 90%;
+    justify-content: space-between;
+  }
+}
+
+/*DESKTOP*/
+/*CABECALHOOO*/
+@media (min-width: 592px) {
+
+  .containerHeader {
+    display: flex;
+    flex-direction: row;
+    border: solid #e0e0e0 2px;
+    border-radius: 8px;
+    background-color: white;
+    align-items: center;
+    padding: 0px 10px 0px 15px;
+    width: 400px;
+    justify-content: space-between;
+  }
+}

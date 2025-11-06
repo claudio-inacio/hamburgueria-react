@@ -1,0 +1,29 @@
+:root {
+  /* === Cores principais === */
+  --color-success-background: #27ae60;
+  --color-success-border: #27ae60;
+  --color-success-hover: #93d7af;
+  --color-error-background: #E62020;
+  --color-error-border: #A50021;
+  --color-error-hover: #FF0000;
+  --color-alert-background: #FF7518;
+  --color-alert-border: #FF5F15;
+  --color-alert-hover: #FF5F1F;
+  --color-inheit-background: #A9A9A9;
+  --color-inheit-border: #818589;
+  --color-inheit-hover: #D3D3D3;
+  --color-primary-background:  #004687;
+  --color-primary-border: #0E3386;
+  --color-primary-hover: #005A9C;
+  --color-secondary-background: #A9A9A9;
+  --color-secondary-border: #818589;
+  --color-secondary-hover: #D3D3D3;
+  
+  --text-primary:  #004687;
+  --text-secondary:  #818589;
+  --text-success:  #27ae60;
+  --text-error:  #E62020;
+  --text-alert:  #FF5F15;
+  --text-inheit:  #818589;
+  --text-default:  #ffffff;
+}

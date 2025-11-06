@@ -1,0 +1,13 @@
+  .titulo {
+    margin-right: 10px;
+    /* color: #333333; */
+    color: var(--text-primary);
+  }
+  .logo {
+  color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 14.28px;
+    padding-bottom: 14px;
+  }

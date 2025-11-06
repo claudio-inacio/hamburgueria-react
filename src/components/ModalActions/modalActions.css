@@ -1,0 +1,99 @@
+@import "../Button/button.css"; 
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+
+.modal {
+  width: 480px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--color-primary-background);
+  border-bottom: 2px solid var(--color-primary-border);
+}
+
+
+.modal-header.success {
+  background-color: var(--color-success-background);
+  border-color: var(--color-success-border);
+}
+
+.modal-header.error {
+  background-color: var(--color-error-background);
+  border-color: var(--color-error-border);
+}
+
+
+.modal-header.success::before {
+  content: "✔";
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.modal-header.error::before {
+  content: "✖";
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+.modal-body {
+  padding: 20px;
+  color: #333;
+  font-size: 14px;
+  min-height: 120px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

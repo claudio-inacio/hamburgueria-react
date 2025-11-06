@@ -1,8 +1,10 @@
-import Cabecalho from "./components/Cabecalho/cabecalho";
+import Header from "./components/Cabecalho/header";
 import Carrinho from "./components/Carrinho/carrinho";
 import "./App.css";
 import { useState } from "react";
 import MenuContainer from "./components/MenuContainer/menuContainer";
+import ModalActions from "./components/ModalActions/modalActions";
+import FormCreateProduct from "./components/Produtos/form-create/formCreateProduct";
 
 function App() {
   const [products, setProducts] = useState([
@@ -53,6 +55,14 @@ function App() {
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
   const [vendaAtual, setVendaAtual] = useState([]);
   const [totalCarrinho, setTotalCarrinho] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [status, setStatus] = useState(null); // 'success' ou 'error'
+
+  const handleSave = () => {
+    // simula requisição
+    const ok = Math.random() > 0.5;
+    setStatus(ok ? "success" : "error");
+  };
 
   const mostrarProdutos = (valor) => {
     const filtro = products.filter((prod) =>
@@ -84,13 +94,14 @@ function App() {
   return (
     <div className="App">
       <header className="cabecalho">
-        <Cabecalho funcao={mostrarProdutos} />
+        <Header handleIncrementNewItem={() => setIsOpen(true)} handleFilterProducts={mostrarProdutos}  />
       </header>
 
       <body className="corpo">
         <MenuContainer
           prodt={produtosFiltrados.length > 0 ? produtosFiltrados : products}
           onClick={addCarrinho}
+          
         />
         <Carrinho
           funcao={removeCarrinho}
@@ -98,6 +109,20 @@ function App() {
           produto={vendaAtual}
           total
         />
+        <ModalActions
+        isOpen={isOpen}
+        title="Novo Produto"
+        status={status}
+        confirmButtonFormReference='create-product'
+        onClose={() => {
+          setIsOpen(false);
+          setStatus(null);
+        }}
+        onConfirm={handleSave}
+        // onCancel={() => setIsOpen(false)}
+      >
+        <FormCreateProduct handleSubmit={(e) => console.log('event: ',e)} />
+      </ModalActions>
       </body>
     </div>
   );
