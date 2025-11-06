@@ -4,6 +4,7 @@ import "./App.css";
 import { useState } from "react";
 import MenuContainer from "./components/MenuContainer/menuContainer";
 import ModalActions from "./components/ModalActions/modalActions";
+import FormCreateProduct from "./components/Produtos/form-create/formCreateProduct";
 
 function App() {
   const [products, setProducts] = useState([
@@ -67,7 +68,6 @@ function App() {
     const filtro = products.filter((prod) =>
       prod.name.toLowerCase().includes(valor.toLowerCase())
     );
-    console.log({ filtro });
     setProdutosFiltrados(filtro);
   };
   const addCarrinho = (addId) => {
@@ -113,14 +113,15 @@ function App() {
         isOpen={isOpen}
         title="Novo Produto"
         status={status}
+        confirmButtonFormReference='create-product'
         onClose={() => {
           setIsOpen(false);
           setStatus(null);
         }}
         onConfirm={handleSave}
-        onCancel={() => setIsOpen(false)}
+        // onCancel={() => setIsOpen(false)}
       >
-        <p>Esse é o corpo do modal. Você pode colocar formulários, textos, etc.</p>
+        <FormCreateProduct handleSubmit={(e) => console.log('event: ',e)} />
       </ModalActions>
       </body>
     </div>
