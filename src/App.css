@@ -1,18 +1,48 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
   text-decoration: none;
 }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; 
+  overflow-y: auto;   
+}
+
 .App {
   text-align: center;
 }
 
+.corpo {
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  gap: 2px;
+  padding: 2px;
+}
+
 @media (min-width: 592px) {
   .corpo {
-    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
 
-    justify-content: space-around;
+  .corpo > :first-child {
+    flex: 0 0 70%;  
+    max-width: 70%;
+  }
+
+  .corpo > :nth-child(2) {
+    flex: 0 0 30%;     /* ocupa 20% da largura */
+    max-width: 30%;
   }
 }

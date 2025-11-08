@@ -21,7 +21,7 @@ const ModalActions = ({
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className={`modal-header ${status ? status : ""}`}>
-          <span className="modal-title">{title}</span>
+          <span className="modal-title">{status === 'success' ? 'Registrado Com Sucesso!' : title}</span>
           <button className="modal-close" onClick={onClose}>
             &times;
           </button>

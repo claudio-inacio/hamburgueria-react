@@ -3,7 +3,7 @@
 import "./headerTitle.css";
 
 const HeaderTitle = ({
-  title= 'Burguer',
+  title= 'Burger',
   subTitle='Hero'
 }) => {
   return (

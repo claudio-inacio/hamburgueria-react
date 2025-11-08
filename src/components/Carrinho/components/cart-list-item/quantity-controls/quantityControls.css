@@ -1,0 +1,6 @@
+.quantidade-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,29 @@
+.carrinhoInformacao {
+  flex: 1;
+  min-width: 100px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.carrinhoInformacao h2 {
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carrinhoInformacao aside {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carrinhoInformacao p {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 3px;
+}
