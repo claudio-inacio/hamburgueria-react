@@ -8,6 +8,6 @@
     }
   ],
   "framework": "create-react-app",
-  "buildCommand": "npm build",
+  "buildCommand": "npm run build",
   "outputDirectory": "build"
 }
