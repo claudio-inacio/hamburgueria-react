@@ -85,7 +85,7 @@ const useProducts = (params = {}) => {
 
   const handleAddtoFavorite = (product) => {
 
-    const { resultSet, mapResultSet, index } = update(
+    const { resultSet, mapResultSet } = update(
       productsResultSet,
       resultSetMap,
       { ...product, isLike: !product.isLike },

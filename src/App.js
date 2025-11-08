@@ -52,12 +52,12 @@ function App() {
     await handleFinishBuySuccess(data);
   }
 
-  async function constructor() {
+  async function initialData() {
     await handleGetInitialProducts();
     await handleGetCartProducts();
   }
   useEffect(() => {
-    constructor();
+    initialData();
   }, []);
 
   return (

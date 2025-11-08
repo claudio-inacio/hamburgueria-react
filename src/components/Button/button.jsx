@@ -19,7 +19,7 @@ const Button = ({
       type={typeButton}
       id={idButton}
       form={confirmButtonFormReference}
-      onClick={() => !isDisabled && typeButton == 'button' && handleFunction()}
+      onClick={() => !isDisabled && typeButton === 'button' && handleFunction()}
       className={`botao ${loading ? "loading" : ""}`}
       style={{
         "--bg": style?.backgroundColor,

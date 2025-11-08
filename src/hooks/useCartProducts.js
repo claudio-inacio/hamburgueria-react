@@ -48,7 +48,7 @@ const useCartProducts = (params = {}) => {
       product,
       action
     );
-    const { resultSet, mapResultSet, index } = update(
+    const { resultSet, mapResultSet } = update(
       cartProductsResultSet,
       resultSetMap,
       productPreapred,
