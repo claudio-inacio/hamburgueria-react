@@ -1,7 +1,5 @@
-import { formatCurrency, isValidURL } from "../../utils";
+import { isValidURL } from "../../utils";
 import Button from "../Button/button";
-import Tolltip from "../Tolltip/tollpit";
-import LikeButton from "./components/like-button/likeButton";
 import "./produto.css";
 import imageDontProduct from "./img/no-image.png";
 import ProductInfoActionsComponent from "./components/product-info-actions/productInfoActionsComponent";
