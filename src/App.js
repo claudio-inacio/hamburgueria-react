@@ -52,14 +52,14 @@ function App() {
     await handleFinishBuySuccess(data);
   }
 
-  async function initialData() {
+  async function handeInitialData() {
     await handleGetInitialProducts();
     await handleGetCartProducts();
   }
-  useEffect(() => {
-    initialData();
-  }, []);
-
+useEffect(() => {
+  handeInitialData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
   return (
     <div className="App">
       <SuccessTolltip

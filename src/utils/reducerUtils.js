@@ -1,6 +1,7 @@
 export function createMapResultSet(resultSet, indexOfIdRegister = "id") {
   const mapResultSet = {};
-  resultSet?.map((item, index) => {
+
+  resultSet?.forEach((item, index) => {
     mapResultSet[item[indexOfIdRegister]] = index;
   });
 
