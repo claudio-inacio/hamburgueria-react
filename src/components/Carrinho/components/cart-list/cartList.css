@@ -1,0 +1,28 @@
+.containerCarrinho {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.ulCarrinho {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  overflow-y: auto; 
+  flex: 1;
+  max-height: calc(80vh - 120px);
+  scroll-behavior: smooth;
+}
+
+.ulCarrinho::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ulCarrinho::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+
+

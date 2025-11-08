@@ -1,0 +1,36 @@
+.produto-info-actions {
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  justify-content: space-between;
+  
+}
+
+.produto-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  
+  gap: 6px;
+  padding: 4px;
+}
+
+.produto-nome {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+
+.produto-categoria {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.produto-preco {
+  font-size: 1rem;
+  color: var(--text-success);
+  font-weight: 600;
+}

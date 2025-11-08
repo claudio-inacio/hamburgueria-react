@@ -1,16 +1,47 @@
+import { formatCurrency, isValidURL } from "../../utils";
+import Button from "../Button/button";
+import Tolltip from "../Tolltip/tollpit";
+import LikeButton from "./components/like-button/likeButton";
 import "./produto.css";
-// import Button from "../Button/button";
-const Produto = ({ prod, funcao }) => {
+import imageDontProduct from "./img/no-image.png";
+import ProductInfoActionsComponent from "./components/product-info-actions/productInfoActionsComponent";
+
+const Produto = ({
+  clearProductsFiltered = () => {},
+  prod = {},
+  loading = false,
+  handleAddtoFavorite = () => {},
+  handleAddProductToCart = () => {},
+  resultSetMap = {},
+}) => {
   return (
-    <div className="cardProduto">
-      <figure className="foto">
-        <img src={prod.img} alt="Foto do Produto" />
+    <div className="card-produto">
+      <figure className="produto-foto">
+        <img
+          src={
+            prod?.img && isValidURL(prod?.img) ? prod?.img : imageDontProduct
+          }
+          alt={prod?.name || "Imagem do produto"}
+          loading="lazy"
+        />
       </figure>
-      <div className="informacoes">
-        <h2>{prod.name}</h2>
-        <p>{prod.category}</p>
-        <p className="price">R$ {prod.price} </p>
-        {/* <Button onClick={funcao} produto={prod.id} titulo={"Adicionar"} /> */}
+
+      <ProductInfoActionsComponent
+        prod={prod}
+        handleAddtoFavorite={handleAddtoFavorite}
+      />
+      <div className="container-actions">
+        <Button
+          loading={loading}
+          handleFunction={() => {
+            handleAddProductToCart(prod, resultSetMap);
+            clearProductsFiltered();
+          }}
+          title="Adicionar ao carrinho"
+          typeButton="button"
+          variant="primary"
+          idButton={`add-to-cart-${prod?.id || "default"}`}
+        />
       </div>
     </div>
   );

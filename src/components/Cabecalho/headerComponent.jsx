@@ -1,10 +1,10 @@
 
-import "./header.css";
+import "./headerComponent.css";
 import HeaderActions from "./header-actions/headerActions";
 import HeaderTitle from "./header-tittle/headerTitle";
 
 
-const Header = ({ handleFilterProducts, handleIncrementNewItem }) => {
+const HeaderComponent = ({ handleFilterProducts, handleIncrementNewItem }) => {
   return (
     <header className="header">
       <HeaderTitle />
@@ -16,4 +16,4 @@ const Header = ({ handleFilterProducts, handleIncrementNewItem }) => {
   );
 };
 
-export default Header;
+export default HeaderComponent;

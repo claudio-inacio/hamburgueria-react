@@ -17,6 +17,7 @@ const HeaderActions = ({
         placeholder="Buscar Produto"
         handleChangeFuntion={(e) => {
           setProduto(e);
+  
           inputFunction(e);
         }}
         value={produto}

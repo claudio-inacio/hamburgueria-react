@@ -1,128 +1,128 @@
-import Header from "./components/Cabecalho/header";
-import Carrinho from "./components/Carrinho/carrinho";
 import "./App.css";
-import { useState } from "react";
-import MenuContainer from "./components/MenuContainer/menuContainer";
+import { useEffect, useState } from "react";
+import ProductsContainer from "./components/MenuContainer/productsContainer";
 import ModalActions from "./components/ModalActions/modalActions";
 import FormCreateProduct from "./components/Produtos/form-create/formCreateProduct";
+import useProducts from "./hooks/useProducts";
+import useCartProducts from "./hooks/useCartProducts";
+import FullScreenLoader from "./components/ModalLoader/FullScreenLoader";
+import SuccessTolltip from "./components/success-tolltip/successTolltip";
+import FormPayment from "./components/payment/payment-type/formPaymentType";
+import Cart from "./components/Carrinho/cart";
+import HeaderComponent from "./components/Cabecalho/headerComponent";
 
 function App() {
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "Hamburguer",
-      category: "Sanduiches",
-      price: 14.0,
-      img: "https://i.ibb.co/fpVHnZL/hamburguer.png",
-    },
-    {
-      id: 2,
-      name: "X-Burguer",
-      category: "Sanduiches",
-      price: 16.0,
-      img: "https://i.ibb.co/djbw6LV/x-burgue.png",
-    },
-    {
-      id: 3,
-      name: "Big Kenzie",
-      category: "Sanduiches",
-      price: 18.0,
-      img: "https://i.ibb.co/FYBKCwn/big-kenzie.png",
-    },
-    {
-      id: 4,
-      name: "Fanta Guaraná",
-      category: "Bebidas",
-      price: 5.0,
-      img: "https://i.ibb.co/cCjqmPM/fanta-guarana.png",
-    },
-    {
-      id: 5,
-      name: "Coca-Cola",
-      category: "Bebidas",
-      price: 4.99,
-      img: "https://i.ibb.co/fxCGP7k/coca-cola.png",
-    },
-    {
-      id: 6,
-      name: "Milkshake Ovomaltine",
-      category: "Bebidas",
-      price: 4.99,
-      img: "https://i.ibb.co/QNb3DJJ/milkshake-ovomaltine.png",
-    },
-  ]);
-
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
-  const [vendaAtual, setVendaAtual] = useState([]);
-  const [totalCarrinho, setTotalCarrinho] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState(null); // 'success' ou 'error'
+  const [openModalPayment, setOpenModalPayment] = useState(false);
 
-  const handleSave = () => {
-    // simula requisição
-    const ok = Math.random() > 0.5;
-    setStatus(ok ? "success" : "error");
-  };
+  const {
+    productsResultSet,
+    statusCreate,
+    setStatusCreate,
+    handleGetInitialProducts,
+    handleAddtoFavorite,
+    handleSaveProduct,
+  } = useProducts();
+  const {
+    cartProductsResultSet,
+    resultSetMap,
+    handleRemoveProductToCart,
+    handleClearAllProducts,
+    handleIncrementOrDecrementQuantity,
+    handleAddProductToCart,
+    handleGetCartProducts,
+    loadingFinishBuy,
+    successtoCreate,
+    handleFinishBuySuccess,
+  } = useCartProducts();
 
-  const mostrarProdutos = (valor) => {
-    const filtro = products.filter((prod) =>
+  const filterProducts = (valor) => {
+    const filtro = productsResultSet.filter((prod) =>
       prod.name.toLowerCase().includes(valor.toLowerCase())
     );
     setProdutosFiltrados(filtro);
   };
-  const addCarrinho = (addId) => {
-    const selecionado = products.find((prod) => prod.id === addId);
-    const removidos = vendaAtual.filter((prod) => prod.id === selecionado.id);
-    removidos.length <= 0 ? setVendaAtual([...vendaAtual, selecionado]) : <></>;
-    //vendaAtual.find(selecionado) === true
-    //? setVendaAtual([...vendaAtual, selecionado])
-    //: setVendaAtual([...vendaAtual]);
-  };
+  function clearProductsFiltered() {
+    setProdutosFiltrados([]);
+  }
 
-  const removeCarrinho = (removeId) => {
-    console.log(removeId);
-    const removidos = vendaAtual.filter((prod) => prod.id !== removeId);
-    setVendaAtual(removidos);
-  };
+  async function preapareToFinish(data) {
+    setOpenModalPayment(null);
+    await handleFinishBuySuccess(data);
+  }
 
-  const removerTudo = (number) => {
-    console.log(number);
-    const removerTodos = vendaAtual.filter((prod) => prod.id === number);
-    setVendaAtual(removerTodos);
-  };
+  async function constructor() {
+    await handleGetInitialProducts();
+    await handleGetCartProducts();
+  }
+  useEffect(() => {
+    constructor();
+  }, []);
 
   return (
     <div className="App">
-      <header className="cabecalho">
-        <Header handleIncrementNewItem={() => setIsOpen(true)} handleFilterProducts={mostrarProdutos}  />
-      </header>
+      <SuccessTolltip
+        isVisible={successtoCreate}
+        message="Compra Realizada com Sucesso!"
+      />
+
+      <HeaderComponent
+        handleIncrementNewItem={() => setIsOpen(true)}
+        handleFilterProducts={filterProducts}
+      />
 
       <body className="corpo">
-        <MenuContainer
-          prodt={produtosFiltrados.length > 0 ? produtosFiltrados : products}
-          onClick={addCarrinho}
-          
+        <ProductsContainer
+          prodt={
+            produtosFiltrados.length > 0 ? produtosFiltrados : productsResultSet
+          }
+          resultSetMap={resultSetMap}
+          handleAddProductToCart={handleAddProductToCart}
+          handleAddtoFavorite={handleAddtoFavorite}
+          clearProductsFiltered={clearProductsFiltered}
         />
-        <Carrinho
-          funcao={removeCarrinho}
-          funcaoRemove={removerTudo}
-          produto={vendaAtual}
+        <Cart
+          handleRemoveProductToCart={handleRemoveProductToCart}
+          handleIncrementOrDecrementQuantity={
+            handleIncrementOrDecrementQuantity
+          }
+          handleClearAllProducts={handleClearAllProducts}
+          listProducts={cartProductsResultSet}
+          handleFinishBuySuccess={() => setOpenModalPayment(true)}
           total
         />
         <ModalActions
-        isOpen={isOpen}
-        title="Novo Produto"
-        status={status}
-        confirmButtonFormReference='create-product'
-        onClose={() => {
-          setIsOpen(false);
-          setStatus(null);
-        }}
-        onConfirm={handleSave}
-        // onCancel={() => setIsOpen(false)}
-      >
-        <FormCreateProduct handleSubmit={(e) => console.log('event: ',e)} />
-      </ModalActions>
+          isOpen={isOpen}
+          title="Novo Produto"
+          status={statusCreate}
+          confirmButtonFormReference="create-product"
+          onClose={() => {
+            setIsOpen(false);
+            setStatusCreate(null);
+          }}
+          onConfirm
+        >
+          <FormCreateProduct handleSubmit={handleSaveProduct} />
+        </ModalActions>
+        <ModalActions
+          isOpen={openModalPayment}
+          title="Confirmar Pagamento"
+          confirmButtonLabel="Confirmar Pagamento"
+          status={statusCreate}
+          confirmButtonFormReference="form-payment"
+          onClose={() => {
+            setOpenModalPayment(false);
+            setStatusCreate(null);
+          }}
+          onConfirm
+        >
+          <FormPayment handleSubmit={(data) => preapareToFinish(data)} />
+        </ModalActions>
+        <FullScreenLoader
+          isLoading={!!loadingFinishBuy}
+          message={loadingFinishBuy}
+        />
       </body>
     </div>
   );

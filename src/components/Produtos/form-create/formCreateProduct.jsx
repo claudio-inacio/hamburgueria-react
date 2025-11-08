@@ -40,10 +40,10 @@ const FormCreateProduct = ({ handleSubmit }) => {
     const cleanPrice = Number(productPrice.replace(/\D/g, "")) / 100;
 
     const newProduct = {
-      product_name: productName.trim(),
-      product_price: cleanPrice,
-      product_image: productImage,
-      product_category: productCategory,
+      name: productName.trim(),
+      price: cleanPrice,
+      img: productImage,
+      category: productCategory,
     };
 
     handleSubmit(newProduct);
@@ -57,13 +57,12 @@ const FormCreateProduct = ({ handleSubmit }) => {
   return (
     <form id="create-product" className="form-create-product" onSubmit={onSubmit}>
       <div className="form-group">
-        <label htmlFor="product_name">Nome do Produto</label>
+        <label htmlFor="name">Nome do Produto</label>
         <InputVariant
-          id="product_name"
+          id="name"
           placeholder="Ex: X-Burger"
           value={productName}
           handleChangeFuntion={(e) => {
-            console.log(e)
             const _errors = { ...errors };
             _errors.productName = null;
             setErrors(_errors);
@@ -74,9 +73,9 @@ const FormCreateProduct = ({ handleSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="product_price">Preço</label>
+        <label htmlFor="price">Preço</label>
         <InputVariant
-          id="product_price"
+          id="price"
           placeholder="Ex: R$ 25,90"
           value={productPrice}
           handleChangeFuntion={handlePriceChange}
@@ -84,9 +83,9 @@ const FormCreateProduct = ({ handleSubmit }) => {
         {errors.productPrice && <p className="error">{errors.productPrice}</p>}
       </div>
       <div className="form-group">
-        <label htmlFor="url_image">Url da Imagem</label>
+        <label htmlFor="img">Url da Imagem</label>
         <InputVariant
-          id="url_image"
+          id="img"
           placeholder=""
           value={productImage}
           handleChangeFuntion={setProductImage}
@@ -94,9 +93,9 @@ const FormCreateProduct = ({ handleSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="product_category">Categoria</label>
+        <label htmlFor="category">Categoria</label>
         <select
-          id="product_category"
+          id="category"
           value={productCategory}
           onChange={(e) => setProductCategory(e.target.value)}
         >
@@ -105,10 +104,6 @@ const FormCreateProduct = ({ handleSubmit }) => {
           <option value="Outros">Outros</option>
         </select>
       </div>
-
-      {/* <button type="submit" className="botao">
-        Criar Produto
-      </button> */}
     </form>
   );
 };

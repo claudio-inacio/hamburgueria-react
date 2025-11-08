@@ -1,0 +1,15 @@
+.actionsHeader {
+  display: flex;
+  background-color: var(--text-primary);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carrinhop {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  font-size: 18px;
+}

@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.cardapio {
+  display: grid;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+@media (max-width: 600px) {
+  .cardapio {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 50%;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .cardapio > * {
+    scroll-snap-align: center;
+  }
+
+  .cardapio::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .cardapio::-webkit-scrollbar-thumb {
+    background: var(--color-secondary-border);
+    border-radius: 4px;
+  }
+}
