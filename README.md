@@ -83,5 +83,4 @@ Experiência do usuário (UX)
 
 🌐 Deploy
 
-👉 Se você tiver o link do deploy, posso adicionar aqui.
-Caso ainda não tenha, posso criar um texto explicativo padrão.
+https://hamburgueria-react-gamma.vercel.app/
