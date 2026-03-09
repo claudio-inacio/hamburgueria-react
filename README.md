@@ -7,7 +7,6 @@ Além disso, há suporte para adicionar novos produtos, permitindo que o projeto
 
 🖼️ Prévia do Projeto
 
-(Caso deseje inserir imagem, posso adicionar aqui — basta enviar a imagem ou selecionar uma já enviada.)
 
 🧠 Sobre o Projeto
 
